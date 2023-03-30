@@ -346,47 +346,7 @@ void loop()
                 // toggle detection state (here: HIGH)
                 sentDetectionState( true );
 
-
-/*
-                // get & sent timestamp
-                Serial.print("NTP getting time ");
-                while(!timeClient.update()) {
-                    Serial.print(".");
-                    timeClient.forceUpdate();
-                }
-                Serial.printLn("Done");
-
-                // The formatted Date comes with the following format:
-                // 2018-05-28T16:00:13Z
-                formattedDate = timeClient.getFormattedTime();
-                Serial.println(formattedDate);
-
-
-                // convert string to char
-                int str_len = formattedDate.length(); 
-                char char_array[str_len];
-                formattedDate.toCharArray(char_array, str_len);
-
-                // format & send message
-                strcpy(topic, mqtt_identifier);
-                strcat(topic, "/lastHigh");
-                client.publish(topic, char_array );
-                
-                Serial.print("MQTT-Publish: ");
-                Serial.print(topic);
-                Serial.print(char_array);
-
-                // sent highDetected=TRUE
-                strcpy(topic, mqtt_identifier);
-                strcat(topic, "/highDetected");
-                client.publish(topic, "TRUE");
-                
-                Serial.print("MQTT-Publish: ");
-                Serial.println(topic);
-*/
-
-
-                // "template to convert a value into char"
+                // example "template to convert a value into char"
                 // Convert the value to a char array
                 /*
                 char tempString[16];
