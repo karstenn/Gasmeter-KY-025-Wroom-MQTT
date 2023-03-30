@@ -49,3 +49,6 @@ lastLow=Sunday, March 26 2023 14:43:27
 
 
 Thus, in homeassistant you can track the change of status, e.g. every time highDetected was set to TRUE (or FALSE)
+
+
+Many thanks to @topoppe for the support.
