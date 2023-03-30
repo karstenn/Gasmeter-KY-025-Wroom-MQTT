@@ -1,9 +1,13 @@
 # Gasmeter-KY-025-Wroom-MQTT
 
 This script does use:
+
 - the KY-025 reed to detect if there is an increment (magnetic field) at the physical gasmeter
+
 - NTP to setup the initial rtc time at startup
+
 - mqtt to send the status (see below)
+
 
 I found out that the KY-025 does not provide a stable output signal. Contrary to the documentation on the Internet, it actually "bounces". 
 This means that short interruptions occur when reading out the magnetic field, which inevitably lead to measurement errors. For example, if you count the change from LOW to HIGH, the KY-025 would send much more frequent counts than there actually are (or less).
@@ -26,12 +30,22 @@ In Home Assistant, for example, I can then watch for the change of state and cou
 
 
 MQTT:
+
 The current status of reading will be sent by two messgages (only one of booth can the TRUE):
+
 /gasmeter-ky025/highDetected=TRUE/FALSE
+
 /gasmeter-ky025/lowDetected=TRUE/FALSE
 
+
+
+
+
 Booth are sent in sync with a timestamp, e.g:
+
 lastHigh=Sunday, March 26 2023 14:43:22
+
 lastLow=Sunday, March 26 2023 14:43:27
+
 
 Thus, in homeassistant you can track the change of status, e.g. every time highDetected was set to TRUE (or FALSE)
